@@ -14,7 +14,6 @@
 .DS_Store
 
 # Environment files
-/src/environments/environment.prod.ts
 .env
 .env.local
 

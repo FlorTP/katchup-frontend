@@ -1,0 +1,35 @@
+# Angular
+/dist/
+/bazel-out
+/node_modules
+.angular/
+.angular/cache/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment files
+/src/environments/environment.prod.ts
+.env
+.env.local
+
+# Dependencies
+package-lock.json
+yarn.lock
+
+# Build outputs
+/dist
+/tmp
+/out-tsc
+
+# Testing
+/coverage
+/.nyc_output
+
+# Misc
+*.log

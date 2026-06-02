@@ -1,9 +1,10 @@
-/* ============================================================
-   KATCHUP - Estilos globales
-   ============================================================ */
-
-/* Reset */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -13,30 +14,80 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* PrimeNG overrides */
 .p-inputtext {
   border-radius: 8px !important;
   border-color: #e5e7eb !important;
   font-size: 0.875rem !important;
 }
+
 .p-inputtext:focus {
   border-color: #2d9c6f !important;
   box-shadow: 0 0 0 2px rgba(45, 156, 111, 0.15) !important;
 }
+
 .p-dropdown {
   border-radius: 8px !important;
   border-color: #e5e7eb !important;
 }
+
 .p-dropdown:not(.p-disabled).p-focus {
   border-color: #2d9c6f !important;
   box-shadow: 0 0 0 2px rgba(45, 156, 111, 0.15) !important;
 }
-.p-button.p-button-text { color: #6c757d !important; }
-.p-dialog .p-dialog-header { border-bottom: 1px solid #f3f4f6; padding: 1.25rem 1.5rem; }
-.p-dialog .p-dialog-header .p-dialog-title { font-weight: 700; color: #1a3a2e; }
-.p-dialog .p-dialog-content { padding: 1.25rem 1.5rem; }
-.p-dialog .p-dialog-footer { padding: 0.75rem 1.5rem; border-top: 1px solid #f3f4f6; }
-.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider { background: #2d9c6f !important; }
 
-/* Utilities */
-.w-full { width: 100% !important; }
+.p-button.p-button-text {
+  color: #6c757d !important;
+}
+
+.p-dialog .p-dialog-header {
+  border-bottom: 1px solid #f3f4f6;
+  padding: 1.25rem 1.5rem;
+}
+
+.p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 700;
+  color: #1a3a2e;
+}
+
+.p-dialog .p-dialog-content {
+  padding: 1.25rem 1.5rem;
+}
+
+.p-dialog .p-dialog-footer {
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background: #2d9c6f !important;
+}
+
+.w-full {
+  width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .p-dialog {
+    width: 96vw !important;
+    max-width: 96vw !important;
+  }
+
+  .p-dialog .p-dialog-content {
+    padding: 1rem;
+  }
+
+  .p-dialog .p-dialog-header {
+    padding: 1rem;
+  }
+
+  .p-dialog .p-dialog-footer {
+    padding: 0.75rem 1rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .p-dialog .p-dialog-footer .p-button {
+    flex: 1;
+    justify-content: center;
+  }
+}

@@ -1,69 +1,80 @@
-import { Routes } from '@angular/router';
-import { authGuard } from './core/guards/auth.guard';
-import { guestGuard } from './core/guards/guest.guard';
-
+import { Routes } from "@angular/router";
+import { authGuard } from "./core/guards/auth.guard";
+import { guestGuard } from "./core/guards/guest.guard";
 export const routes: Routes = [
-  // Redirigir raíz
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-
-  // Rutas públicas (solo si NO está autenticado)
+  { path: "", redirectTo: "/dashboard", pathMatch: "full" },
   {
-    path: 'auth',
+    path: "auth",
     canActivate: [guestGuard],
     children: [
       {
-        path: 'login',
+        path: "login",
         loadComponent: () =>
-          import('./features/auth/login/login.component').then((m) => m.LoginComponent),
+          import("./features/auth/login/login.component").then(
+            (m) => m.LoginComponent,
+          ),
       },
       {
-        path: 'register',
+        path: "register",
         loadComponent: () =>
-          import('./features/auth/register/register.component').then((m) => m.RegisterComponent),
+          import("./features/auth/register/register.component").then(
+            (m) => m.RegisterComponent,
+          ),
       },
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: "", redirectTo: "login", pathMatch: "full" },
     ],
   },
-
-  // Layout principal protegido
   {
-    path: '',
+    path: "",
     canActivate: [authGuard],
     loadComponent: () =>
-      import('./shared/components/layout/layout.component').then((m) => m.LayoutComponent),
+      import("./shared/components/layout/layout.component").then(
+        (m) => m.LayoutComponent,
+      ),
     children: [
       {
-        path: 'dashboard',
+        path: "dashboard",
         loadComponent: () =>
-          import('./features/dashboard/dashboard.component').then((m) => m.DashboardComponent),
+          import("./features/dashboard/dashboard.component").then(
+            (m) => m.DashboardComponent,
+          ),
       },
       {
-        path: 'gastos',
+        path: "gastos",
         loadComponent: () =>
-          import('./features/gastos/gastos.component').then((m) => m.GastosComponent),
+          import("./features/gastos/gastos.component").then(
+            (m) => m.GastosComponent,
+          ),
       },
       {
-        path: 'metas-ahorro',
+        path: "metas-ahorro",
         loadComponent: () =>
-          import('./features/metas-ahorro/metas-ahorro.component').then((m) => m.MetasAhorroComponent),
+          import("./features/metas-ahorro/metas-ahorro.component").then(
+            (m) => m.MetasAhorroComponent,
+          ),
       },
       {
-        path: 'simulador',
+        path: "simulador",
         loadComponent: () =>
-          import('./features/simulador/simulador.component').then((m) => m.SimuladorComponent),
+          import("./features/simulador/simulador.component").then(
+            (m) => m.SimuladorComponent,
+          ),
       },
       {
-        path: 'reglas-automaticas',
+        path: "reglas-automaticas",
         loadComponent: () =>
-          import('./features/reglas-automaticas/reglas-automaticas.component').then((m) => m.ReglasAutomaticasComponent),
+          import("./features/reglas-automaticas/reglas-automaticas.component").then(
+            (m) => m.ReglasAutomaticasComponent,
+          ),
       },
       {
-        path: 'familia',
+        path: "familia",
         loadComponent: () =>
-          import('./features/familia/familia.component').then((m) => m.FamiliaComponent),
+          import("./features/familia/familia.component").then(
+            (m) => m.FamiliaComponent,
+          ),
       },
     ],
   },
-
-  { path: '**', redirectTo: '/dashboard' },
+  { path: "**", redirectTo: "/dashboard" },
 ];
